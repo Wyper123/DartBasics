@@ -58,7 +58,7 @@ void main(){
       break;
 
       case "8":
-      print("Exit");
+      print("Exitting the program");
       Running = false;
 
       default:
