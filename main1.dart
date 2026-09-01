@@ -56,7 +56,8 @@ void main() {
 
   bool Running = true;
   while (Running) {
-    print("\nSelect the following:");
+    print("")
+    print("Select the following:");
     print("0. Search Student");
     print("1. Add Student");
     print("2. View Student");
@@ -104,7 +105,7 @@ void main() {
         break;
 
       case "8":
-        print("Exiting the program... Goodbye!");
+        print("Exiting Program");
         Running = false;
         break;
 
