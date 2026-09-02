@@ -86,6 +86,10 @@ void updateStudent() {
 }
 
 void deleteStudent() {
+  if (students.isEmpty){
+    print("No Records Found");
+  }
+
 
 }
 
