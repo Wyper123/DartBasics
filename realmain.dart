@@ -21,15 +21,15 @@ void main(){
       case 1:
         addStudent();
         break;
-      
+
       case 2: 
         viewStudents();
         break;
-      
+
       case 3: 
         print("update");
         break;
-      
+
       case 4: 
         print("delete");
         break;
@@ -43,7 +43,7 @@ void main(){
 
 void addStudent() {
   print("\n=============Adding Students=============");
-  
+
   stdout.write("Enter Student Name: ");
   String? name = stdin.readLineSync();
   stdout.write("Enter Student Course: ");
@@ -52,12 +52,13 @@ void addStudent() {
   String? yearLevel = stdin.readLineSync();
 
   students.add({
-    "id": next_id,
+    "ID": next_id,
     "Name": name,
     "Course": course,
     "Year_Level": yearLevel
   });
-  
+  next_id ++;
+
   print("=====Student was sucessfully added.======\n");
 }
 
@@ -69,6 +70,7 @@ void viewStudents() {
 
   for (int i = 0; i < students.length; i++){
     var student = students [i];
+    print("ID: ${student["ID"]}");
     print("Name: ${student["Name"]}");
     print("Course: ${student["Course"]}");
     print("Year Level: ${student["Year_Level"]}\n");
@@ -76,12 +78,27 @@ void viewStudents() {
   print("==========================================\n");
 }
 
+void searchStudent(){
+  if (students.isEmpty){
+    print("No Records Found");
+  }
+
+  stdout.write("Enter Student ID: "); 
+  int? id = int.tryParse(stdin.readLineSync()!);
+
+  for(int i = 0; i < students.length; i++){
+    if (students[i]["id"] == id) {
+      return;
+    }
+  }
+}
+
 void updateStudent() {
   if (students.isEmpty){
     print("No Records Found");
   }
 
-  
+
 
 }
 
@@ -92,14 +109,3 @@ void deleteStudent() {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
