@@ -100,23 +100,23 @@ void updateStudent() {
     print("No Records Found");
   }
   
-  
   int? index = searchStudent();
   
   if (index == null){
       return;
   }
+
   var student = students[index];
   
   stdout.write("Enter new Name: ");
   String? newName = stdin.readLineSync();
   student["Name"] = newName;
 
-  stdout.write("Enter new Name: ");
+  stdout.write("Enter new Course: ");
   String? newCourse = stdin.readLineSync();
   student["Course"] = newCourse;
 
-  stdout.write("Enter new Name: ");
+  stdout.write("Enter new Year Level: ");
   STRING? newYear_Level = stdin.readLineSync();
   student["Year_Level"] = newYear_Level;  
 
@@ -125,12 +125,11 @@ void updateStudent() {
 void deleteStudent() {
   if (students.isEmpty){
     print("No Records Found");
-    
+  }
+
      int? index = searchStudent();
      if (index == null) return;
      students.removeAt(index);
      print("Student deleted.");
   }
-
-
 }
