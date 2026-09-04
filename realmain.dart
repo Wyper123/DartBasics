@@ -28,6 +28,7 @@ void main(){
 
       case 3: 
         print("update");
+        updateStudent();
         break;
 
       case 4: 
@@ -78,7 +79,7 @@ void viewStudents() {
   print("==========================================\n");
 }
 
-void searchStudent(){
+int? searchStudent(){
   if (students.isEmpty){
     print("No Records Found");
   }
@@ -87,24 +88,48 @@ void searchStudent(){
   int? id = int.tryParse(stdin.readLineSync()!);
 
   for(int i = 0; i < students.length; i++){
-    if (students[i]["id"] == id) {
-      return;
+    if (students[i]["ID"] == id) {
+      return i;
     }
   }
+  return null;
 }
 
 void updateStudent() {
   if (students.isEmpty){
     print("No Records Found");
   }
+  
+  
+  int? index = searchStudent();
+  
+  if (index == null){
+      return;
+  }
+  var student = students[index];
+  
+  stdout.write("Enter new Name: ");
+  String? newName = stdin.readLineSync();
+  student["Name"] = newName;
 
+  stdout.write("Enter new Name: ");
+  String? newCourse = stdin.readLineSync();
+  student["Course"] = newCourse;
 
+  stdout.write("Enter new Name: ");
+  STRING? newYear_Level = stdin.readLineSync();
+  student["Year_Level"] = newYear_Level;  
 
 }
 
 void deleteStudent() {
   if (students.isEmpty){
     print("No Records Found");
+    
+     int? index = searchStudent();
+     if (index == null) return;
+     students.removeAt(index);
+     print("Student deleted.");
   }
 
 
