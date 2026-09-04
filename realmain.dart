@@ -33,6 +33,7 @@ void main(){
 
       case 4: 
         print("delete");
+        deleteStudents();
         break;
 
       case 5: 
